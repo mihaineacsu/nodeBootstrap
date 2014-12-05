@@ -26,3 +26,4 @@ app.use(express.static(__dirname + '/public'));
 As a result, './img/ipad.png' is looked up within './public'
 <img class="img-responsive" src="img/ipad.png" alt="">
 
+cool
