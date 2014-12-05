@@ -4,7 +4,7 @@
   "description": "NodeJS skeleton",
   "main": "app.js",
   "scripts": {
-    "start": "./node_modules/.bin/nodemon app.js",
+    "start": "NODE_PATH=./config ./node_modules/.bin/nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Mihai Neacsu",
