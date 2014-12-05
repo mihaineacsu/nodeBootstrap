@@ -1,11 +1,16 @@
-http server
-express
-mongoose schemes
-routes
-google and facebook authentication
+http server -- check
+express -- check
+mongoose schemes -- check 
+routes -- check
+config -- add config files
+handlebar -- npm i --save hbs ;modify app to render html using hbs engine; add index.html and test out routes with hbs
+generic template friendly -- find generic template which is also fit from mobile
+bootstrap friendly -- make sure it's bootstrap friendly
+
+hardest
+heroku friendly -- register for an accout; get mongoose working; make sure config files are righly loaded up
+local and social (google and facebook) authentication -- get this working 
+
+optional
 twitter api access
-bootstrap friendly
-general template friendly
-handlebar
-heroku friendly
 twitter api friendly
