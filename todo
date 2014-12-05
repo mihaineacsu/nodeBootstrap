@@ -3,7 +3,7 @@ express -- check
 mongoose schemes -- check 
 routes -- check
 config -- add config files
-handlebar -- npm i --save hbs ;modify app to render html using hbs engine; add index.html and test out routes with hbs
+handlebar -- check
 generic template friendly -- find generic template which is also fit from mobile
 bootstrap friendly -- make sure it's bootstrap friendly
 
