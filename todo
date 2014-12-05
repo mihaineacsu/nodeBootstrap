@@ -4,8 +4,8 @@ mongoose schemes -- check
 routes -- check
 config -- add config files
 handlebar -- check
-generic template friendly -- find generic template which is also fit from mobile
-bootstrap friendly -- make sure it's bootstrap friendly
+generic template friendly -- partialy done, we have a landing page
+bootstrap friendly -- check
 
 hardest
 heroku friendly -- register for an accout; get mongoose working; make sure config files are righly loaded up

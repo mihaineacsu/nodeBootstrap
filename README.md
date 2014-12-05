@@ -17,3 +17,12 @@ Config
 ---------------
 Views go in /views, html format; handlebars works;
 We need to set up routes which end up with response.render('viewToRender', {handlebarData: 'someData'});
+
+Aside from views, we'll have to deal other assets such as css files, images, client js (bootstrap, jquery) - all these will be served
+from within './public'.
+This happens because we set the './public' folder as static for express:
+app.use(express.static(__dirname + '/public'));
+
+As a result, './img/ipad.png' is looked up within './public'
+<img class="img-responsive" src="img/ipad.png" alt="">
+
