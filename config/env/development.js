@@ -3,7 +3,7 @@
  */
 
 module.exports = {
-  db: 'mongodb://localhost/nodeBootstrap',
+  db: 'mongodb://localhost/test',
   port: 8000
   // facebook: {
   //   clientID: 'APP_ID',
