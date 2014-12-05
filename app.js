@@ -12,7 +12,7 @@ app.use(express.static(__dirname + '/public'));
 
 app.use('/', routes);
 
-// mongoose.connect('mongodb://localhost/test')
+mongoose.connect('mongodb://heroku_app32238551:k3r0oad4aiibfc4j872cds7agp@ds061200.mongolab.com:61200/heroku_app32238551')
 
 // var db = mongoose.connection;
 // db.on('error', console.error.bind(console, 'connection error:'));
