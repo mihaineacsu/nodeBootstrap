@@ -20,9 +20,9 @@ mongoose.connect('mongodb://heroku_app32238551:k3r0oad4aiibfc4j872cds7agp@ds0612
 // 	  console.log('mongoose: all good');
 // });
 
-// app.get('/users', function(req, res) {
-// 	mongoose.model('users').find(function(err, users){
-// 		res.send(users);
-// 	})});
+app.get('/users', function(req, res) {
+	mongoose.model('users').find(function(err, users){
+		res.send(users);
+	})});
 console.log(app.get('port'));
 app.listen(app.get('port'));
