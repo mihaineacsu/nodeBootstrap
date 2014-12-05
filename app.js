@@ -1,16 +1,44 @@
 var config = require('config'),
-	express = require('express'),
+    express = require('express'),
     mongoose = require('mongoose'),
     routes = require('./routes/index'),
-    models = require('./models');
+    models = require('./models'),
+    passport = require('passport'),
+    LocalStrategy = require('passport-local').Strategy,
+    bodyParser = require('body-parser'),
+    methodOverride = require('method-override'),
+    cookieParser = require('cookie-parser'),
+    session = require('express-session');
+
 
 var app = express();
 
+app.set('view options', { layout: false });
 app.set('view engine', 'html');
 app.engine('html', require('hbs').__express);
 app.use(express.static(__dirname + '/public'));
 
 app.use('/', routes);
+
+// Need them for passport 
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
+app.use(bodyParser.json());
+app.use(methodOverride());
+app.use(cookieParser('your secret here'));
+app.use(session({
+    secret: 'cookie_secret',
+    resave: false,
+    saveUninitialized: true
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+
+// passport config
+passport.use(new LocalStrategy(models.authenticate()));
+passport.serializeUser(models.serializeUser());
+passport.deserializeUser(models.deserializeUser());
 
 mongoose.connect(config.db);
 
