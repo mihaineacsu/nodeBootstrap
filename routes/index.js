@@ -92,9 +92,21 @@ router.post('/storeRoute', function(req, res){
 
 router.get('/read/:id', function(req, res){
 	mongoose.model('routes').findOne({_id: req.params.id}, function(err, foundRoute){
-		res.render('read', {trip: foundRoute});
+		var points = [];
+		var result = [];
+		if(foundRoute['trip'] !== 'undefined')
+		for(var i = 0; i < foundRoute['trip'].length; i++) {
+			points = new Object();
+			points[0] = foundRoute['trip'][i]['checkpoint'][0];
+			points[1] = foundRoute['trip'][i]['checkpoint'][1];
+			points[2] = foundRoute['trip'][i]['experience'];
+			//points[3] = foundRoute['trip'][i]['desc'];
+			result.push(points);
+		}
+		res.render('read', {trip: result});
 	})
 });
+
 
 
 
