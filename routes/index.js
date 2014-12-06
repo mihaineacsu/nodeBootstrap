@@ -64,9 +64,6 @@ router.get('/users/:name', function(req, res) {
 });
 
 router.get('/build', function(req, res) {
-	if (req.isAuthenticated())
-		redirect('/');
-
 	var toReturn;
 	var link;
 	if (req.user){
@@ -84,8 +81,7 @@ router.get('/ping', function(req, res){
 });
 
 router.post('/storeRoute', function(req, res){
-	if (req.isAuthenticated())
-		redirect('/');
+	console.log(req.body['data']);
 
 	var toSave = req.body['data'];
 	var newRoute = new Routes({trip: toSave}).save(function (err) {

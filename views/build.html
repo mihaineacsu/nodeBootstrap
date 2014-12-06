@@ -202,7 +202,7 @@ function initialize() {
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Urban Warrior</a>
+                <a class="navbar-brand" href="/">Urban Warrior</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -229,20 +229,13 @@ function initialize() {
 
 
     <!-- you can use tables or divs for the overall layout --> 
-    <table border="1"> 
-      <tr> 
-        <td> 
-           <div id="map_canvas" style="width: 550px; height: 450px"></div> 
-        </td> 
-        <td valign="top" style="width:150px; text-decoration: underline; color: #4444ff;"> 
-           <div id="side_bar"></div> 
-        </td> 
-      </tr> 
-    </table> 
- <div id="directions_panel" style="margin:20px;background-color:#FFEE77;"></div>
-</script> 
+           <div id="map_canvas"></div> 
 
-<button type="button" id='nextCheckpoint' disabled>Click Me!</button>
+</script> 
+<textarea id='locDesc' type="text" rows='9' name="quest description" placeholder="Location descriotion"></textarea> 
+
+
+<button type="button" id='nextCheckpoint' disabled>Next checkpoint</button>
 <button type="button" id='saveRoute'>Save route!</button>
 
 
@@ -255,15 +248,6 @@ function initialize() {
   <option value="audi">Befriend another adventurer</option>
 </select>
 
-<textarea id='locDesc' type="text" rows='9' name="quest description" placeholder="Location descriotion"></textarea> 
-
-
-<!-- ------------------------------------------------------------------>
-
-<textarea id='qDesc' type="text" rows='9' name="quest description" placeholder='Quest description'></textarea> 
-
-
-<!-- ------------------------------------------------------------------>
 <select>
   <option value="volvo">100</option>
   <option value="saab">200</option>
@@ -274,6 +258,18 @@ function initialize() {
 
 
 <!-- ------------------------------------------------------------------>
+
+<textarea id='qDesc' type="text" rows='9' name="quest description" placeholder='Quest description'></textarea> 
+
+
+<!-- ------------------------------------------------------------------>
+
+
+
+
+<!-- ------------------------------------------------------------------>
+
+</br></br></br></br></br></br></br>
 <h2>Timeline</h2>
 <ul id='timeline'>
 
@@ -301,7 +297,7 @@ function initialize() {
 
         $('#saveRoute').click(function(){
             $.post( "./storeRoute", {'data': toSave}, function( data ) {
-                window.location.href = "/mytrips";
+                // window.location.href = "/mytrips";
             })});
     </script>
 
