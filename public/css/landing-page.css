@@ -35,6 +35,7 @@ h6 {
     background-size: cover;
 }
 
+
 .intro-message {
     position: relative;
     padding-top: 20%;
@@ -163,4 +164,8 @@ footer {
 
 p.copyright {
     margin: 15px 0 0;
+}
+
+a:hover {
+    cursor: pointer;
 }

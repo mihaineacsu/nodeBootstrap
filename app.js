@@ -1,7 +1,6 @@
 var config = require('config'),
     express = require('express'),
     mongoose = require('mongoose'),
-    routes = require('./routes/index'),
     models = require('./models'),
     passport = require('passport'),
     LocalStrategy = require('passport-local').Strategy,
@@ -18,7 +17,6 @@ app.set('view engine', 'html');
 app.engine('html', require('hbs').__express);
 app.use(express.static(__dirname + '/public'));
 
-app.use('/', routes);
 
 // Need them for passport 
 app.use(bodyParser.urlencoded({
@@ -29,7 +27,7 @@ app.use(methodOverride());
 app.use(cookieParser('your secret here'));
 app.use(session({
     secret: 'cookie_secret',
-    resave: false,
+    resave: true,
     saveUninitialized: true
 }));
 app.use(passport.initialize());
@@ -47,6 +45,9 @@ mongoose.connect(config.db);
 // db.once('open', function callback () {
 // 	  console.log('mongoose: all good');
 // });
+
+var routes = require('./routes/index');
+app.use('/', routes);
 
 app.get('/users', function(req, res) {
 	mongoose.model('users').find(function(err, users){
