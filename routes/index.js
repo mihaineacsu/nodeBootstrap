@@ -83,32 +83,22 @@ router.get('/ping', function(req, res){
   res.send("pong!", 200);
 });
 
-// router.get('/storeRoute', function(req, res){
-// 	res.send("pong!", 200);
-
-// });
-
 router.post('/storeRoute', function(req, res){
 	if (req.isAuthenticated())
 		redirect('/');
 
 	var toSave = req.body['data'];
-
 	var newRoute = new Routes({trip: toSave}).save(function (err) {
 		if (err) return console.error(err);
 	});
-
-
-	// var Cat = mongoose.model('Cat', { name: String });
-
-	// var kitty = new Cat({ name: 'Zildjian' });
-	// kitty.save(function (err) {
- //  if (err) // ...
-	//   console.log('meow');
-	// });
-
-
+	res.send('go');
 });	
+
+router.get('/read/:id', function(req, res){
+	mongoose.model('routes').findOne({_id: req.params.id}, function(err, foundRoute){
+		res.render('read', {trip: foundRoute});
+	})
+});
 
 
 
