@@ -2,6 +2,7 @@ var express = require('express'),
     router = express.Router(),
     passport = require('passport'),
     Account = require('../models'),
+    Routes = require('../models/routes.js')
     mongoose = require('mongoose');
 
 var isAuthenticated = function(req, res, next) {
@@ -62,9 +63,52 @@ router.get('/users/:name', function(req, res) {
 	});
 });
 
+router.get('/build', function(req, res) {
+	if (req.isAuthenticated())
+		redirect('/');
+
+	var toReturn;
+	var link;
+	if (req.user){
+		toReturn = req.user.username;
+		link = '/users/' + req.user.username;
+	}
+	else
+		;
+
+	res.render('./build', {'user': toReturn, 'userLink': link});
+})
+
 router.get('/ping', function(req, res){
   res.send("pong!", 200);
 });
+
+// router.get('/storeRoute', function(req, res){
+// 	res.send("pong!", 200);
+
+// });
+
+router.post('/storeRoute', function(req, res){
+	if (req.isAuthenticated())
+		redirect('/');
+
+	var toSave = req.body['data'];
+
+	var newRoute = new Routes({trip: toSave}).save(function (err) {
+		if (err) return console.error(err);
+	});
+
+
+	// var Cat = mongoose.model('Cat', { name: String });
+
+	// var kitty = new Cat({ name: 'Zildjian' });
+	// kitty.save(function (err) {
+ //  if (err) // ...
+	//   console.log('meow');
+	// });
+
+
+});	
 
 
 

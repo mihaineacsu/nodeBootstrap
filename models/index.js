@@ -10,7 +10,8 @@ var userSchema = new Schema(
 		username: String,
 	    password: String,
 	    oauthID: Number,
-	    local: Boolean
+	    local: Boolean,
+	    routes : [{ type: Schema.Types.ObjectId, ref: 'Routes' }]
 	},
 	{
 		collection: 'users'
